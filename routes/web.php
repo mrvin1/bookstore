@@ -25,7 +25,6 @@ Route::get('/layoutmember', function () {
 Route::get('/layoutadmin', function () {
     return view('admin-layout');
 });
-
 Route::get('/managebook', function () {
     return view('manageBook');
 });
@@ -40,4 +39,16 @@ Route::get('/manageGenre', function () {
 });
 Route::get('/GenreDetail', function () {
     return view('genreDetail');
+});
+Route::get('/viewCart', function () {
+    return view('viewCart');
+});
+Route::get('/editCart', function () {
+    return view('editCart');
+});
+Route::get('/TransactionHistory', function () {
+    return view('TransactionHistory');
+});
+Route::get('/TransactionHistDetail', function () {
+    return view('TransactionHistDetail');
 });
