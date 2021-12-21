@@ -19,3 +19,13 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('/layoutmember', function () {
+    return view('member-layout');
+});
+Route::get('/layoutadmin', function () {
+    return view('admin-layout');
+});
+
+Route::get('/managebook', function () {
+    return view('manageBook');
+});
