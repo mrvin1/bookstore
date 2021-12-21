@@ -1,6 +1,6 @@
 @extends('admin-layout')
 
-@section('title', 'ManageUser')
+@section('title', 'ManageUserDetail')
 
 @section('contents')  
 <style>
@@ -33,7 +33,7 @@
                 <option>Member</option>
             </select>
         </div>
-        <input class="btn btn-primary" type="Update" value="Submit">
+        <input class="btn btn-primary" type="Submit" value="Update">
     </form>
 </div>
     @endsection

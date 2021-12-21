@@ -35,3 +35,9 @@ Route::get('/manageUser', function () {
 Route::get('/UserDetail', function () {
     return view('UserDetail');
 });
+Route::get('/manageGenre', function () {
+    return view('manageGenre');
+});
+Route::get('/GenreDetail', function () {
+    return view('genreDetail');
+});
