@@ -19,3 +19,36 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('/layoutmember', function () {
+    return view('member-layout');
+});
+Route::get('/layoutadmin', function () {
+    return view('admin-layout');
+});
+Route::get('/managebook', function () {
+    return view('manageBook');
+});
+Route::get('/manageUser', function () {
+    return view('manageUser');
+});
+Route::get('/UserDetail', function () {
+    return view('UserDetail');
+});
+Route::get('/manageGenre', function () {
+    return view('manageGenre');
+});
+Route::get('/GenreDetail', function () {
+    return view('genreDetail');
+});
+Route::get('/viewCart', function () {
+    return view('viewCart');
+});
+Route::get('/editCart', function () {
+    return view('editCart');
+});
+Route::get('/TransactionHistory', function () {
+    return view('TransactionHistory');
+});
+Route::get('/TransactionHistDetail', function () {
+    return view('TransactionHistDetail');
+});

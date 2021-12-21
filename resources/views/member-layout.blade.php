@@ -10,7 +10,6 @@
         * {
             font-family: sans-serif;
         }
-
         .header {
             padding: 0%;
             margin: 0;
@@ -52,10 +51,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%; font-size: 1.5vw;" >
                 <ul class="navbar-nav ml-auto" >
-                    <a class="navbar-login" href="">Register</a>
-                    <a class="navbar-login" href="">Login</a>
+                    <li class="nav-item active" >
+                        <a class="nav-link" href="#">View Cart</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">View Transaction History</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  style="font-size: 1.5vw; aria-haspopup="true" aria-expanded="false">
+                          Hello, Member
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Profile</a>
+                          <a class="dropdown-item" href="#">Change Password</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
