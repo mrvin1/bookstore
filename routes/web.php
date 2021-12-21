@@ -29,3 +29,9 @@ Route::get('/layoutadmin', function () {
 Route::get('/managebook', function () {
     return view('manageBook');
 });
+Route::get('/manageUser', function () {
+    return view('manageUser');
+});
+Route::get('/UserDetail', function () {
+    return view('UserDetail');
+});
