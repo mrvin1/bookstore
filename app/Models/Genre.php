@@ -12,7 +12,7 @@ class Genre extends Model
     protected $guarded = [];
 
     
-    public function Book(){
-        return $this->hasMany(Book::class);
+    public function BookDetail(){
+        return $this->hasMany(BookDetail::class);
     }
 }

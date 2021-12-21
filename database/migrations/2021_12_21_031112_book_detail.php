@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TransactionHeader extends Migration
+class BookDetail extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class TransactionHeader extends Migration
      */
     public function up()
     {
-        Schema::create('transactionHeader', function (Blueprint $table) {
+        Schema::create('bookDetail', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('date', $precision = 0);
-            $table->UnsignedBigInteger('cartId');
-            $table->foreign('cartId')->references('id')->on('cart');
+            $table->UnsignedBigInteger('bookId');
+            $table->foreign('bookId')->references('id')->on('book');
+            $table->UnsignedBigInteger('genreId');
+            $table->foreign('genreId')->references('id')->on('genre');
         });
     }
 
@@ -28,6 +29,6 @@ class TransactionHeader extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactionHeader');
+        Schema::dropIfExists('bookDetail');
     }
 }

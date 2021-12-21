@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TransactionDetail extends Seeder
+class TransactionDetailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,15 +13,15 @@ class TransactionDetail extends Seeder
      */
     public function run()
     {
-        DB::table('transactionDetail')->insert([
+        \DB::table('transactionDetail')->insert([
             'transactionID'=>1,
             'bookId'=>5
         ]);
-        DB::table('transactionDetail')->insert([
+        \DB::table('transactionDetail')->insert([
             'transactionID'=>2,
             'bookId'=>6
         ]);
-        DB::table('transactionDetail')->insert([
+       \DB::table('transactionDetail')->insert([
             'transactionID'=>3,
             'bookId'=>1
         ]);

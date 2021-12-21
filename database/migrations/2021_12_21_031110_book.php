@@ -19,8 +19,6 @@ class Book extends Migration
             $table->longText('synopsis');
             $table->String('cover', 255);
             $table->double('price',20);
-            $table->UnsignedBigInteger('genreId');
-            $table->foreign('genreId')->references('id')->on('genre');
             $table->String('author', 255);
         });
     }

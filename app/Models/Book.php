@@ -11,8 +11,8 @@ class Book extends Model
     protected $table= "book";
     protected $guarded = [];
 
-    public function genre(){
-        return $this->hasMany(Genre::class);
+    public function bookDetail(){
+        return $this->hasMany(bookDetail::class);
     }
     public function cart(){
         return $this->hasMany(Cart::class);
