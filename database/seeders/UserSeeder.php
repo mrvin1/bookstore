@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ClientSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,29 +13,29 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('client')->insert([
+        \DB::table('users')->insert([
             'email' => 'adi@gmail.com',
             'password' => bcrypt('adi123'),
-            'fullname' => 'Adi Sanjaya',
-            'roleId' => 1
+            'name' => 'Adi Sanjaya',
+            'role' => 'admin'
         ]);
-        \DB::table('client')->insert([
+        \DB::table('users')->insert([
             'email' => 'bunga@gmail.com',
             'password' => bcrypt('bunga123'),
-            'fullname' => 'Bunga Lestari',
-            'roleId' => 2
+            'name' => 'Bunga Lestari',
+            'role' => 'member'
         ]);
-        \DB::table('client')->insert([
+        \DB::table('users')->insert([
             'email' => 'clara@gmail.com',
             'password' => bcrypt('clara123'),
-            'fullname' => 'Clara Nugroho',
-            'roleId' => 2
+            'name' => 'Clara Nugroho',
+            'role' => 'member'
         ]);
-        \DB::table('client')->insert([
+        \DB::table('users')->insert([
             'email' => 'doddy@gmail.com',
             'password' => bcrypt('doddy123'),
-            'fullname' => 'Doddy Saputra',
-            'roleId' => 1
+            'name' => 'Doddy Saputra',
+            'role' => 'admin'
         ]);
     }
 }

@@ -19,7 +19,7 @@ class Cart extends Migration
             $table->double('totalPrice');
             $table->double('subTotal');
             $table->String('clientEmail');
-            $table->foreign('clientEmail')->references('email')->on('client');
+            $table->foreign('clientEmail')->references('email')->on('users');
             $table->UnsignedBigInteger('bookId');
             $table->foreign('bookId')->references('id')->on('book');
         });

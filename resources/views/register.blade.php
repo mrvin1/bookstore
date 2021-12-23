@@ -36,29 +36,50 @@
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-3">REGISTER</h2>
   
-                <form>
+                <form action="/register" method="POST">
+                  @csrf
                     <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                        <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg" required  value="{{old('email')}}"/>
                         <label class="form-label" for="form3Example3cg">Your Email</label>
                     </div>
+                    @error('email')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+                    @enderror
 
                     <div class="form-outline mb-4">
-                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                        <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" required value="{{old('name')}}"/>
                         <label class="form-label" for="form3Example1cg">Your Name</label>
                     </div>
+                    @error('name')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+                    @enderror
   
                     <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Example4cg">Password</label>
                     </div>
+                    @error('password')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+                    @enderror
   
                     <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                        <input type="password" name="password_confirmation" id="form3Example4cdg" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
                     </div>
+                    @error('passwordd_confirmation')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+                    @enderror
   
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                     </div>
   
                 </form>

@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Middleware\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +22,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('login');
 // });
 
-Route::get('/', [AuthController::class, 'viewLogin']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [LoginController::class, 'viewLogin']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/admin', [AdminController::class, 'viewAdmin'])->middleware('adminmiddleware');
+Route::get('/register', [RegisterController::class, 'viewRegister']);
+Route::post('/register', [RegisterController::class, 'register']);
 
-Route::get('/register', function () {
-    return view('register');
-});
 Route::get('/layoutmember', function () {
     return view('member-layout');
 });
-Route::get('/layoutadmin', function () {
-    return view('admin-layout');
-});
+
 Route::get('/managebook', function () {
     return view('manageBook');
 });

@@ -86,19 +86,26 @@ body {
 
 </style>
 <div class="login-page">
+
     <div class="form">
         <div class="login">
             <div class="login-header">
               <h3>LOGIN</h3>
             </div>
         </div>
-        <form class="login-form">
-            <input type="email" name="email" id="email" placeholder="email" >
-            <input type="password" name="password" id="password" placeholder="password">
+        {{-- @if(Auth::client()->roleid ==1)
+          <a href="/admin">admin page</a>
+        @endif --}}
+  
+        <form class="login-form" method="POST" action="/login">
+          @csrf
+            <input type="email" name="email" id="email" placeholder="email" required value="{{old('email')}}>
+            <input type="password" name="password" id="password" placeholder="password" required>
             <input type="checkbox" name="remember" id="remember" >Remember Me
-            <button>login</button>
+            <input type="submit" value="login"></button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
+     
     </div>
 </div>
 
