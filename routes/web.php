@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ManageBookController;
 use App\Http\Middleware\Auth;
 
 
@@ -27,13 +28,13 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/admin', [AdminController::class, 'viewAdmin'])->middleware('adminmiddleware');
 Route::get('/register', [RegisterController::class, 'viewRegister']);
 Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/managebook', [ManageBookController::class, 'viewBook'])->middleware('adminmiddleware');
+Route::post('/managebook', [ManageBookController::class, 'insertBook'])->middleware('adminmiddleware');
+
+
 
 Route::get('/layoutmember', function () {
     return view('member-layout');
-});
-
-Route::get('/managebook', function () {
-    return view('manageBook');
 });
 Route::get('/manageUser', function () {
     return view('manageUser');

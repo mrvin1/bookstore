@@ -16,25 +16,31 @@
     <div class="row justify-content" >
         <div class="col-md-12"> 
 
-            <form>
+            <form method="POST">
+                @csrf
                 <h1>Insert Book Form</h1>
                 <div class="Book-Title">
                     <label for="BookTitle">Title</label>
-                    <input type="text" class="form-control" id="BookTitle" >
+                    <input type="text" class="form-control" id="name" name="name" required >
                 </div>
                 <div class="Book-Author">
                     <label for="Author">Author</label>
-                    <input type="text" class="form-control" id="Author" >
+                    <input type="text" class="form-control" id="author" name="author" required >
                 </div>
                 
                 <div class="Book-Synopsis">
                     <label for="Synopsis">Synopsis</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <textarea class="form-control" id="synopsis" name="synopsis" rows="10" required></textarea>
                 </div>
                 <div class="Book-Genre">
                     <label for="Synopsis">Genre(s)</label>
-                    {{-- for each checkbox --}}
-                    <input type="checkbox" class="checkbox" id="Genre" >
+                    @forelse ($genre as $genre=>$value)
+                        <input type="checkbox" class="checkbox" id="=genre" name="genre" value="{{$genre[$idx]->id}}">
+                        {{$genre[$idx]->name}}
+                    @empty
+                        no genre data
+                    @endforelse
+                        
                 </div>
                 <div class="form-group">
                     <label for="Author">Price</label>
