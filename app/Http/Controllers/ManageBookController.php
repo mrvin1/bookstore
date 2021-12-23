@@ -12,8 +12,9 @@ class ManageBookController extends Controller
 {
     public function viewBook(){
         $genre = genre::all();
+        $book = Book::all();
         $bookDetail = bookDetail::all();
-        return view('manageBook', ['genre'=>$genre, 'bookdetail'=>$bookDetail]);
+        return view('manageBook', ['genre'=>$genre, 'bookdetail'=>$bookDetail, 'book'=>$book]);
     }
     public function insertBook(Request $request){
         $newBook = Validator::make($request->all(),[
@@ -41,6 +42,7 @@ class ManageBookController extends Controller
             ])
             
         );
+
             
    
 

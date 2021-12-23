@@ -74,13 +74,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
+                    @forelse ($book as $idx => $value)
                     <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Synopsis</td>
-                        <td>Genre</td>
-                        <td>Price</td>
+                        <td>{{$book[$idx]->name}}</td>
+                        <td>{{$book[$idx]->author}}</td>
+                        <td>{{$book[$idx]->synopsis}}</td>
+                        <td>{{$bookdetail[$idx]->genreId}}</td>
+                        <td>{{$book[$idx]->price}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>
                             
@@ -89,7 +89,9 @@
                         </td>
                         
                     </tr> 
-                    {{-- @endforeach --}}
+                    @empty
+                        BOOK IS EMPTY
+                    @endforelse
                 </tbody>
             </table>
         </div>
