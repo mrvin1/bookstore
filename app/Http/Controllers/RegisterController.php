@@ -19,7 +19,7 @@ class RegisterController extends Controller
         $account['password'] = bcrypt($account['password']);
         User::create($account);
         
-        return redirect('/layoutmember');
+        return redirect('/login');
     }
    
 }

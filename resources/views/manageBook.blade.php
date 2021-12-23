@@ -34,8 +34,8 @@
                 </div>
                 <div class="Book-Genre">
                     <label for="Synopsis">Genre(s)</label>
-                    @forelse ($genre as $genre=>$value)
-                        <input type="checkbox" class="checkbox" id="=genre" name="genre" value="{{$genre[$idx]->id}}">
+                    @forelse ($genre as $idx=>$value)
+                        <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
                         {{$genre[$idx]->name}}
                     @empty
                         no genre data
@@ -44,18 +44,23 @@
                 </div>
                 <div class="form-group">
                     <label for="Author">Price</label>
-                    <input type="number" min="50000" class="form-control" id="Author" >
+                    <input type="number" class="form-control" name="price" id="price" required >
                 </div>
                 
                 <div class="book-image">
-                    <label for="book_image">Book Cover</label>
-                    <input type="file" name="book_image" id="book_image">
+                    <label for="cover">Book Cover</label>
+                    <input type="file" name="cover" id="cover" required>
                 </div>
                 
                 <div class="submit">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
+            {{-- @error('cover')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+            @enderror --}}
             
             <table class="table table-striped" style="background-color: rgb(255, 233, 171)">
                 <thead>

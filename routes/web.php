@@ -8,6 +8,7 @@ use App\Http\Controllers\ManageBookController;
 use App\Http\Middleware\Auth;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
