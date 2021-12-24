@@ -12,6 +12,7 @@
         padding: 5% 10% 5% 10% ;
     }
 </style>
+
 <div class="container-fluid">
     <div class="row justify-content" >
         <div class="col-md-12"> 
