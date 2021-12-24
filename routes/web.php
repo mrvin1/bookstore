@@ -61,3 +61,6 @@ Route::get('/TransactionHistory', function () {
 Route::get('/TransactionHistDetail', function () {
     return view('TransactionHistDetail');
 });
+Route::get('/home', function () {
+    return view('home');
+});
