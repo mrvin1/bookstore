@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Book;
 use App\Models\Genre as genre;
 use App\Models\bookDetail;
@@ -13,7 +14,9 @@ class ManageBookController extends Controller
     public function viewBook(){
         $genre = genre::all();
         $book = Book::all();
-        $bookDetail = bookDetail::all();
+        $bookDetail=bookDetail::all();
+        // $bookDetail = bookDetail::join('genre','genreid', '=', 'bookDetail.genreId')->get();
+        // dd($bookDetail);
         return view('manageBook', ['genre'=>$genre, 'bookdetail'=>$bookDetail, 'book'=>$book]);
     }
     public function insertBook(Request $request){

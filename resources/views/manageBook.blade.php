@@ -80,7 +80,7 @@
                         <td>{{$book[$idx]->name}}</td>
                         <td>{{$book[$idx]->author}}</td>
                         <td>{{$book[$idx]->synopsis}}</td>
-                        <td>{{$bookdetail[$idx]->genreId}}</td>
+                        <td>{{$bookdetail[$idx]}}</td>
                         <td>{{$book[$idx]->price}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>
