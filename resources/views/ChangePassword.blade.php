@@ -131,15 +131,15 @@
             @csrf
             <div class="form-group" style="display: flex;">
                 <label for="exampleInputEmail1" style="width:25%">Old password</label>
-                <input type="password" class="form-control form-control" name="old">
+                <input type="password" class="form-control form-control" name="old" required>
             </div>
             <div class="form-group" style="display: flex">
                 <label for="exampleInputEmail1" style="width:25%">new password</label>
-                <input type="password" class="form-control form-control" name="new">
+                <input type="password" class="form-control form-control" name="new" required>
             </div>
             <div class="form-group" style="display: flex">
                 <label for="exampleInputEmail1" style="width:25%">New Confirmation Password</label>
-                <input type="password" class="form-control form-control" name="confirm">
+                <input type="password" class="form-control form-control" name="confirm" required>
             </div>
             <button type="submit" style="width:100%" class="btn btn-primary btn-block submit-btn">Update</button>
         </form>

@@ -8,6 +8,7 @@ use App\Models\Book;
 use App\Models\Genre as genre;
 use App\Models\bookDetail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ManageBookController extends Controller
 {
@@ -25,17 +26,19 @@ class ManageBookController extends Controller
             'author' => 'required',
             'synopsis' => 'required',
             'genre' => 'required|exists:Genre,id',
-            'cover' => 'required',
+            'cover' => 'required|image',
             'price'=> 'required|numeric'
         ])->validate();
-
+        $image =$newBook['cover'];
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
         Book::insert([
-            'name' =>$request->input('name'),
-            'author' =>$request->input('author'),
-            'synopsis' =>$request->input('synopsis'),
-            'cover' =>$request->input('cover'),
-            'price' =>$request->input('price'),
+            'name' =>$newBook['name'],
+            'author' =>$newBook['author'],
+            'synopsis' =>$newBook['synopsis'],
+            'cover' =>$imageName,
+            'price' =>$newBook['price'],
         ]);
+        Storage::putFileAs('public', $image,$imageName);
 
         for($i = 0; $i<sizeof($request->input('genre')); $i++) 
         (
@@ -45,7 +48,6 @@ class ManageBookController extends Controller
             ])
             
         );
-
         return redirect()->back(); 
     }
 }

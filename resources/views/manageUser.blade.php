@@ -17,25 +17,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($collection as $item) --}}
+                        @forelse ( $user as $idx => $value )
                         <tr>
-                            <td>Mark</td>
-                            <td>Otto@mail.com</td>
-                            <td>Role</td>
-                            {{-- if role admin  --}}
-                            {{-- <td>
+                            <td>{{$user[$idx]->name}}</td>
+                            <td>{{$user[$idx]->email}}</td>
+                            <td>{{$user[$idx]->role}}</td>
+                            @if($user[$idx]->role==='admin')
+                            <td>
                                 <a class="btn btn-primary" href="#" role="button">view Detail</a>
-                                
-                            </td> --}}
-                            {{-- else --}}
+                            </td> 
+                            @else
                             <td>
                                 <a class="btn btn-primary" href="#" role="button">view Detail</a>
                                 {{-- ref ke USERDETAIL.BLADE --}}
-                                <button type="button" class="btn btn-danger">Delete</button>
-                                
+                                <form action="/manageuser" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger" value="{{$idx+1}}" name="delete" >Delete</button>
+                                </form>
                             </td>
+                            @endif
                         </tr> 
-                        {{-- @endforeach --}}
+                        @empty
+                            no user!
+                        @endforelse
                     </tbody>
                 </table>
             </div>

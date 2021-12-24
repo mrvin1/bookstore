@@ -17,7 +17,7 @@
     <div class="row justify-content" >
         <div class="col-md-12"> 
 
-            <form method="POST">
+            <form enctype="multipart/form-data" action="/managebook" method="POST">
                 @csrf
                 <h1>Insert Book Form</h1>
                 <div class="Book-Title">

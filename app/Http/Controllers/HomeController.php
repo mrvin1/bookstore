@@ -17,10 +17,5 @@ class HomeController extends Controller
         $book = Book::where('name','LIKE',"%$query%")->paginate(5);
         return view('home',['book'=>$book]);
     }
-    public function clearSearch(Request $request)
-    {
-        $query = $request->clear;
-        $book = Book::paginate(5);
-        return view('home', ['book'=>$book]);
-    }
+
 }

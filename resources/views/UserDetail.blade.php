@@ -16,21 +16,22 @@
     }
 </style>
 <div class="container-fluid">
-    <form>
+    <form method="POST" action="/userdetail">
+        @csrf
         <h1>Member's User Detail</h1> <br>
         <div class="form-group">
             <label for="Name">Name:</label>
-            <input type="text" class="form-control" id="Name" >
+            <input type="text" class="form-control" id="Name" name="name" required >
         </div>
         <div class="form-group">
             <label for="Email">Email address:</label>
-            <input type="email" class="form-control" id="Email" >
+            <input type="email" class="form-control" id="Email" name="email" required>
         </div>
         <div class="form-group">
             <label for="Role">Role:</label>
-            <select class="form-control" id="Role">
-                <option>Admin</option>
-                <option>Member</option>
+            <select class="form-control" id="Role" name="role">
+                <option value="admin" id="Role">Admin</option>
+                <option value="member" id="Role">Member</option>
             </select>
         </div>
         <input class="btn btn-primary" type="Submit" value="Update">

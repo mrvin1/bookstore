@@ -15,6 +15,7 @@ class RegisterController extends Controller
             'name' => 'required',
             'email' => 'required|email:dns|unique:users',
             'password'=> 'required|min:8|required_with:password_confirmation|same:password_confirmation'
+            // 'password_confirmation' => 'required|same:password'
         ]);
         $account['password'] = bcrypt($account['password']);
         User::create($account);
