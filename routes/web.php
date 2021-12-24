@@ -64,4 +64,12 @@ Route::get('/TransactionHistory', function () {
 Route::get('/TransactionHistDetail', function () {
     return view('TransactionHistDetail');
 });
-
+Route::get('/bookDetail', function () {
+    return view('BookDetails');
+});
+Route::get('/profile', function () {
+    return view('profile');
+});
+Route::get('/ChangePassword', function () {
+    return view('ChangePassword');
+});
