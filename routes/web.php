@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\manageUserController;
 use App\Http\Controllers\userDetailController;
+use App\Http\Controllers\genreController;
 use App\Http\Middleware\Auth;
 
 
@@ -40,10 +41,9 @@ Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->
 Route::post('/manageuser', [manageUserController::class, 'deleteUser'])->middleware('adminmiddleware');
 Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware');
 Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware');
+Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware');
+Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware');
 
-Route::get('/manageGenre', function () {
-    return view('manageGenre');
-});
 Route::get('/GenreDetail', function () {
     return view('genreDetail');
 });

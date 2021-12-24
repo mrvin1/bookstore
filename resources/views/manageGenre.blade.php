@@ -16,11 +16,12 @@
     }
 </style>
 <div class="container-fluid">
-    <form>
+    <form method="POST" action="/genre">
+        @csrf
         <h1>Insert Genre Form</h1> <br>
         <div class="form-group">
             <label for="Name">Genre Name:</label>
-            <input type="text" class="form-control" id="Name" >
+            <input type="text" class="form-control" id="Name" name="name" required>
         </div>
         <input class="btn btn-primary" type="Submit" value="Insert">
     </form>
@@ -35,9 +36,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
+                    @forelse ( $genre as $idx => $value)
                     <tr>
-                        <td>Horror</td>
+                        <td>{{$genre[$idx]->name}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>
                             {{-- ref ke genredetai.BLADE --}}
@@ -45,7 +46,10 @@
                             
                         </td>
                     </tr> 
-                    {{-- @endforeach --}}
+                    @empty
+                        No genre!
+                    @endforelse
+                    
                 </tbody>
             </table>
         </div>
