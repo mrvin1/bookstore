@@ -46,9 +46,6 @@ class ManageBookController extends Controller
             
         );
 
-            
-   
-
         return redirect()->back(); 
     }
 }

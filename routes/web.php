@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ManageBookController;
+use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Auth;
 
 
@@ -31,6 +32,8 @@ Route::get('/register', [RegisterController::class, 'viewRegister']);
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/managebook', [ManageBookController::class, 'viewBook'])->middleware('adminmiddleware');
 Route::post('/managebook', [ManageBookController::class, 'insertBook'])->middleware('adminmiddleware');
+Route::get('/home', [HomeController::class, 'viewHome']);
+Route::post('/home', [HomeController::class, 'viewHome']);
 
 
 
@@ -61,6 +64,4 @@ Route::get('/TransactionHistory', function () {
 Route::get('/TransactionHistDetail', function () {
     return view('TransactionHistDetail');
 });
-Route::get('/home', function () {
-    return view('home');
-});
+

@@ -20,14 +20,11 @@ class LoginController extends Controller
             Cookie::queue('cookie', $request->email, 7);
         }
 
-        if(Auth::attempt($credential)&&Auth::user()->role =='member'){
+        if(Auth::attempt($credential)){
             $request->session()->regenerate();
-            return redirect()->intended('/layoutmember');
+            return redirect()->intended('/home');
         }
-        else if(Auth::attempt($credential)&&Auth::user()->role =='admin'){
-            $request->session()->regenerate();
-            return redirect()->intended('/admin');
-        }
+
 
         return redirect()->back();  
     }
