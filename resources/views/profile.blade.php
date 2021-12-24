@@ -133,23 +133,27 @@
 <div class="form">
 
     <h2>Profile</h2>
+    <form action="/profile" method="POST">
+    @csrf
     <div class="form-group row">
         <label for="input" class="col-sm-2 col-form-label">Name</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="input" placeholder="Name">
+            <input type="text" class="form-control" id="input" placeholder="Name" name="name" required>
         </div>
     </div>
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="member@example.com">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$user->email}}">
         </div>
     </div>
     <div class="button" style="padding-top: 1vw;padding-bottom: 1.5vw;">
         
-        <button type="button" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Update</button>
         <button type="button" class="btn btn-primary">Change Password</button>
     </div>
+    </form>
+    
 </div>
 
 

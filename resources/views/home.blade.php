@@ -36,7 +36,31 @@
 
 </style>
 <title>Home</title>
-@if(Auth::user()->role ==='admin')
+
+@if(Auth::guest())
+    {{-- @extends('layout-log-reg') --}}
+
+    <div class=header>
+        <nav class="navbar navbar-expand-lg navbar-light mr-md-0">
+            <div class=navbar-head style="background-color: #rgba(252, 186, 3);">
+                <a class="navbar-brand" href="/" style="color: blACK; font-size:2vw">
+                    Book Store
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%">
+                <ul class="navbar-nav ml-auto" >
+                    <a class="navbar-login" href="">Register</a>
+                    <a class="navbar-login" href="">Login</a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+@elseif(Auth::user()->role ==='admin')
     {{-- @extends('admin-layout')  --}}
     <body>
         <div class=header>
@@ -77,7 +101,6 @@
             </nav>
         </div>
         
-    
     </body>
 @elseif(Auth::user()->role ==='member')
     {{-- @extends('member-layout') --}}
@@ -115,40 +138,20 @@
             </div>
         </nav>
     </div>
-    
 
 </body>
-@else 
-    {{-- @extends('layout-log-reg') --}}
 
-    <div class=header>
-        <nav class="navbar navbar-expand-lg navbar-light mr-md-0">
-            <div class=navbar-head style="background-color: #rgba(252, 186, 3);">
-                <a class="navbar-brand" href="/" style="color: blACK; font-size:2vw">
-                    Book Store
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%">
-                <ul class="navbar-nav ml-auto" >
-                    <a class="navbar-login" href="">Register</a>
-                    <a class="navbar-login" href="">Login</a>
-                </ul>
-            </div>
-        </nav>
-    </div>
     
 @endif
 
 <div class="content" >
-    <form class="form-inline">
-        <input class="form-control mr-sm-3" style="width: 90%"; type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline" method="POST" action="/home">
+        @csrf
+        <input class="form-control mr-sm-3" style="width: 90%"; type="search" placeholder="Search" aria-label="Search" name="search" id="search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <button type="submit" style="margin-top: 1vw; margin-bottom: 3vw"  class="btn btn-primary" name="clear">Clear Filter</button> 
     </form>
-    <button type="button" style="margin-top: 1vw; margin-bottom: 3vw"  class="btn btn-primary">Clear Filter</button>
+   
    
     <div class="row max auto" style="margin-left:3vw; margin-right:3vw" >
         @forelse ($book as $idx => $value)
