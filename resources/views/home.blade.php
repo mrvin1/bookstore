@@ -149,6 +149,8 @@
         @csrf
         <input class="form-control mr-sm-3" style="width: 90%"; type="search" placeholder="Search" aria-label="Search" name="search" id="search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <form action="/home" method="GET">
         <button type="submit" style="margin-top: 1vw; margin-bottom: 3vw"  class="btn btn-primary" name="clear">Clear Filter</button> 
     </form>
    
