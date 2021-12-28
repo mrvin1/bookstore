@@ -204,6 +204,7 @@
             </div>
         </div>
     </div>
+</div>
 @elseif(Auth::user()->role ==='member')
     {{-- @extends('member-layout') --}}
     
@@ -289,7 +290,7 @@
                 </div>
                 
                 <a class="btn btn-primary" href="#" role="button">Add to cart</a>   
-
+            </div>
             </div>
         </div>
     </div>  

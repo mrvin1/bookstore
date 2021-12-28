@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class PasswordController extends Controller
 {
     public function passwordView(){
@@ -22,7 +24,7 @@ class PasswordController extends Controller
       
         $user = User::find(auth()->user()->id);
      
-        if(!\Hash::check($data['old'], $user->password)){
+        if(!Hash::check($data['old'], $user->password)){
      
              return back()->with('error','You have entered wrong password');
      
