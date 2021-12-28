@@ -9,7 +9,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\manageUserController;
 use App\Http\Controllers\userDetailController;
+use App\Http\Controllers\bookDetailController;
 use App\Http\Controllers\genreController;
+use App\Http\Controllers\CartController;
 use App\Http\Middleware\Auth;
 
 
@@ -45,6 +47,10 @@ Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middlewar
 Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware');
 Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware');
 Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware');
+Route::get('/bookdetail/{idx}', [bookDetailController::class, 'bookDetailView']);
+Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->middleware('adminmiddleware'); //bookdetail update khusus admin
+Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware'); 
+
 
 Route::get('/GenreDetail', function () {
     return view('genreDetail');
@@ -61,6 +67,4 @@ Route::get('/TransactionHistory', function () {
 Route::get('/TransactionHistDetail', function () {
     return view('TransactionHistDetail');
 });
-Route::get('/bookDetail', function () {
-    return view('BookDetails');
-});
+

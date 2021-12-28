@@ -37,8 +37,6 @@
 </style>
 <title>Book Detail</title>
 @if(Auth::guest())
-
-
     <div class=header>
         <nav class="navbar navbar-expand-lg navbar-light mr-md-0">
             <div class=navbar-head style="background-color: #rgba(252, 186, 3);">
@@ -60,42 +58,34 @@
     </div>
 
 <div class="content" > 
-    <h1 style="margin-left: 10%">  {{-- {{$title->title}}   --}}Book Detail </h1> 
+    <h1 style="margin-left: 10%">  {{$book->name}}  Book Detail </h1> 
     <div class="container-fluid" style="background-color: rgb(255, 233, 171); ">
         <div class="row justify-content" >
             <div class="col-md-4" style="padding-top: 2vw; padding-left: 10%;">
 
-                <img style="width: 100%;" src="{{Storage::url('1.jpg')}}" alt="">
+                <img style="width: 100%;" src="{{url('/storage/'. $book->cover)}}" alt="">
             </div>  
             <div class="col-md-7"> 
                 <div class="detailContent" style="font-size: 18px;padding:1.5rem; ">
                     <p> Title: 
-                        {{-- {{$title->title}}  --}}
-                        Harry Potter and the Philosopher's Stone 
+                        {{$book->name}}
+    
                     </p><br>
                     <p> Author: 
-                        {{-- {{$author->author}} --}}
-                        J.K. Rowling
+                        {{$book->author}}
                     </p><br>
                     <p> Synopsis: <br>
-                        {{-- {{$author->publisher}} --}}
-                        Ten-year-old Harry Potter is an orphan who lives in the fictional London suburb of Little Whinging, Surrey, 
-                        with the Dursleys: his uncaring Aunt Petunia, loathsome Uncle Vernon, and spoiled cousin Dudley. 
-                        The Dursleys barely tolerate Harry, and Dudley bullies him. One day Harry is astonished to receive a
-                        letter addressed to him in the cupboard under the stairs (where he sleeps). Before he can open the letter, however,
-                        Uncle Vernon takes it. Letters for Harry subsequently arrive each day, in increasing numbers, but Uncle Vernon tears
-                        them all up, and finally, in an attempt to escape the missives, the Dursleys go to a miserable shack on a small island. 
-                        On Harry’s 11th birthday, a giant named Hagrid arrives and reveals that Harry is a wizard and that he has been accepted
-                        at the Hogwarts School of Witchcraft and Wizardry. He also sheds light on Harry’s past, informing the boy that his parents,
-                        a wizard and a witch, were killed by the evil wizard Voldemort and that Harry acquired the lightning-bolt scar on his forehead during the fatal confrontation.
+                        {{$book->synopsis}}
                     </p><br>
                     <p> Genre(s): 
-                        {{-- {{$author->year}} --}}
-                        Fiction, Adventure, young Adult, fanatsy
+                        @forelse ($book->genre as $idy =>$value )
+                            {{$book->genre[$idy]->name}}, 
+                        @empty
+                            no genre
+                        @endforelse
                     </p><br>
                     <p> Price: Rp.
-                        {{-- {{$author->description}} --}}
-                        300.000
+                        {{$book->price}}
                     </p><br>
 
                 </div>
@@ -149,46 +139,46 @@
     </body>
 <div class="content" > 
 
-    <h1 style="margin-left: 10%">   {{-- {{$title->title}}   --}}  Harry Potter and the Philosopher's Stone  Book Detail </h1>  
+    <h1 style="margin-left: 10%"> {{$book->name}} Book Detail </h1>  
          
     <div class="container-fluid">
     <div class="row justify-content" >
         <div class="col-md-12"> 
             
-            <form method="POST">
+            <form method="POST" action="/bookdetail/{{$book->id}}" enctype="multipart/form-data">
                 @csrf
                 <div class="Book-Title">
                     <label for="BookTitle">Title</label>
-                    <input type="text" class="form-control" id="name" name="name" required >
+                    <input type="text" class="form-control" id="name" name="name" value="{{$book->name}}" required >
                 </div>
                 <div class="Book-Author">
                     <label for="Author">Author</label>
-                    <input type="text" class="form-control" id="author" name="author" required >
+                    <input type="text" class="form-control" id="author" name="author" value="{{$book->author}}" required >
                 </div>
                 
                 <div class="Book-Synopsis">
                     <label for="Synopsis">Synopsis</label>
-                    <textarea class="form-control" id="synopsis" name="synopsis" rows="10" required></textarea>
+                    <textarea class="form-control" id="synopsis" name="synopsis" rows="10" required >{{$book->synopsis}}</textarea>
                 </div>
                 <div class="Book-Genre">
                     <label for="Synopsis">Genre(s)</label> 
-                    {{-- @forelse ($genre as $idx=>$value)
+                    @forelse ($genre as $idx=>$value)
                         <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
-                        {{$genre[$idx]->name}}
+                            {{$genre[$idx]->name}}
                         @empty
                         no genre data
-                        @endforelse --}}
+                        @endforelse
                         
                     </div>
                     <div class="form-group">
                         <label for="Author">Price</label>
-                        <input type="number" class="form-control" name="price" id="price" required >
+                        <input type="number" class="form-control" name="price" id="price" value="{{$book->price}}" required >
                     </div>
                     
                     <div class="book-image" style="display: flex; flex-direction: row;">
                         <label for="cover">Book Cover:</label>
-                        <img style="width: 35%; padding-left: 5vw; padding-right: 5vw" src={{Storage::url('1.jpg')}} alt="">
-                        <input style="padding-top: 17%" type="file" name="cover" id="cover" required>
+                        <img style="width: 35%; padding-left: 5vw; padding-right: 5vw" src={{url('/storage/'. $book->cover)}} alt="">
+                        <input style="padding-top: 17%" type="file" name="cover" id="cover" >
                     </div>
                     
                     <div class="submit" style="padding-top: 1vw">
@@ -244,52 +234,47 @@
 
 </body>
 <div class="content" > 
-    <h1 style="margin-left: 10%">   Harry Potter and the Philosopher's Stone     Book Detail </h1> 
+    <h1 style="margin-left: 10%">   {{$book->name}}     Book Detail </h1> 
             <div class="container-fluid" style="background-color: rgb(255, 233, 171); ">
                 <div class="row justify-content" >
                     <div class="col-md-4" style="padding-top: 2vw; padding-left: 10%;">
-            <img style="width: 100%;" src="{{Storage::url('1.jpg')}}" alt="">
+            <img style="width: 100%;" src="{{url('/storage/'. $book->cover)}}" alt="">
         </div>  
         <div class="col-md-7"> 
             <div class="detailContent" style="font-size: 18px;padding:1.5rem; ">
                 <p> Title: 
-                    {{-- {{$title->title}} --}}
-                     Harry Potter and the Philosopher's Stone 
+                    {{$book->name}}
+                   
                 </p><br>
                 <p> Author: 
-                    {{-- {{$author->author}}  --}}
-                     J.K. Rowling
+                    {{$book->author}}
                 </p><br>
                 <p> Synopsis: <br>
-                    {{-- {{$author->publisher}} --}}
-                    Ten-year-old Harry Potter is an orphan who lives in the fictional London suburb of Little Whinging, Surrey, 
-                    with the Dursleys: his uncaring Aunt Petunia, loathsome Uncle Vernon, and spoiled cousin Dudley. 
-                    The Dursleys barely tolerate Harry, and Dudley bullies him. One day Harry is astonished to receive a
-                    letter addressed to him in the cupboard under the stairs (where he sleeps). Before he can open the letter, however,
-                    Uncle Vernon takes it. Letters for Harry subsequently arrive each day, in increasing numbers, but Uncle Vernon tears
-                    them all up, and finally, in an attempt to escape the missives, the Dursleys go to a miserable shack on a small island. 
-                    On Harry’s 11th birthday, a giant named Hagrid arrives and reveals that Harry is a wizard and that he has been accepted
-                    at the Hogwarts School of Witchcraft and Wizardry. He also sheds light on Harry’s past, informing the boy that his parents,
-                    a wizard and a witch, were killed by the evil wizard Voldemort and that Harry acquired the lightning-bolt scar on his forehead during the fatal confrontation.
+                    {{$book->synopsis}}
+                   
                 </p><br>
                 <p> Genre(s): 
-                    {{-- {{$author->year}} --}}
-                    Fiction, Adventure, young Adult, fanatsy
+                    @forelse ($book->genre as $idy =>$value )
+                        {{$book->genre[$idy]->name}}, 
+                    @empty
+                        no genre
+                    @endforelse
                 </p><br>
                 <p> Price: Rp.
-                    {{-- {{$author->description}} --}}
-                    300.000
+                    {{$book->price}}
+    
                 </p><br>
                 
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Quantity</span>
                     </div>
-                    <input type="text" class="form-control" >
-                </div>
-                
-                <a class="btn btn-primary" href="#" role="button">Add to cart</a>   
-
+                    <form action="/addcart/{{$book->id}}" method="POST">
+                        @csrf
+                        <input type="number" class="form-control" min="1" name="amount" required  >
+                    </div>
+                        <button type="submit">Add to cart</a>   
+                    </form>
             </div>
         </div>
     </div>  
