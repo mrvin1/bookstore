@@ -16,11 +16,14 @@ class genreController extends Controller
         $input = $request->validate([
             'name' => 'required|unique:genre',
         ]);
-        Genre::create($input);
+        Genre::insert($input);
         return redirect()->back();
     }
     public function deleteGenre(Request $request)
     {
-        
+        $reqDel=$request['del'];
+        $genreDel=Genre::where('name',$reqDel);
+        $genreDel->delete();
+        return redirect()->back();
     }
 }

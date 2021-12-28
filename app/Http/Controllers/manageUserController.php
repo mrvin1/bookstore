@@ -13,7 +13,7 @@ class manageUserController extends Controller
     }
     public function deleteUser(Request $request){
         $reqDel=$request['delete'];
-        $userDel=User::find($reqDel);
+        $userDel=User::where('email',$reqDel);
         $userDel->delete();
         return redirect()->back();
     }

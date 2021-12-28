@@ -9,12 +9,12 @@ class bookDetail extends Model
 {
     use HasFactory;
     protected $table= "bookDetail";
-    protected $guarded = [];
+    protected $guarded = []; 
 
-    public function book(){
-        return $this->hasOne(Book::class);
-    }
-    public function genre(){
-        return $this->hasMany(Genre::class);
-    }
+    // public function book(){
+    //     return $this->belongsToMany(Book::class);
+    // }
+    // public function genre(){
+    //     return $this->belongsToMany(Genre::class,'bookdetail','bookId','genreId');
+    // }
 }

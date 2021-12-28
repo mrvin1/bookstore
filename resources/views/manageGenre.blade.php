@@ -41,9 +41,10 @@
                         <td>{{$genre[$idx]->name}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>
-                            {{-- ref ke genredetai.BLADE --}}
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            
+                            <form action="/genreDel" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" name="del" value="{{$genre[$idx]->name}}">Delete</button>
+                            </form>
                         </td>
                     </tr> 
                     @empty

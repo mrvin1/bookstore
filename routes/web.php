@@ -43,6 +43,7 @@ Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->midd
 Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware');
 Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware');
 Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware');
+Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware');
 
 Route::get('/GenreDetail', function () {
     return view('genreDetail');

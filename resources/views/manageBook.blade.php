@@ -80,7 +80,13 @@
                         <td>{{$book[$idx]->name}}</td>
                         <td>{{$book[$idx]->author}}</td>
                         <td>{{$book[$idx]->synopsis}}</td>
-                        <td>{{$bookdetail[$idx]}}</td>
+                        <td>
+                        @forelse ($book[$idx]->genre as $idy =>$value )
+                            {{$book[$idx]->genre[$idy]->name}}, 
+                        @empty
+                            no genre
+                        @endforelse
+                        </td> 
                         <td>{{$book[$idx]->price}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>

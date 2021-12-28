@@ -32,7 +32,7 @@
                                 {{-- ref ke USERDETAIL.BLADE --}}
                                 <form action="/manageuser" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger" value="{{$idx+1}}" name="delete" >Delete</button>
+                                    <button type="submit" class="btn btn-danger" value="{{$user[$idx]->email}}" name="delete" >Delete</button>
                                 </form>
                             </td>
                             @endif

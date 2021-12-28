@@ -11,14 +11,17 @@ class Book extends Model
     protected $table= "book";
     protected $guarded = [];
 
-    public function bookDetail(){
-        return $this->hasMany(bookDetail::class);
-    }
+    // public function bookDetail(){
+    //     return $this->hasMany(bookDetail::class);
+    // }
     public function cart(){
         return $this->hasMany(Cart::class);
     }
     public function transactionDetail(){
         return $this->hasMany(transactionDetail::class);
+    }
+    public function genre(){
+         return $this->belongsToMany(Genre::class,'bookdetail','bookId','genreId');
     }
 
 }

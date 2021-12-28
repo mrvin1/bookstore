@@ -12,13 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ManageBookController extends Controller
 {
-    public function viewBook(){
+    public function viewBook(){ 
         $genre = genre::all();
         $book = Book::all();
-        $bookDetail=bookDetail::all();
-        // $bookDetail = bookDetail::join('genre','genreid', '=', 'bookDetail.genreId')->get();
-        // dd($bookDetail);
-        return view('manageBook', ['genre'=>$genre, 'bookdetail'=>$bookDetail, 'book'=>$book]);
+        return view('manageBook', ['genre'=>$genre, 'book'=>$book]);
     }
     public function insertBook(Request $request){
         $newBook = Validator::make($request->all(),[
