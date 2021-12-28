@@ -42,9 +42,18 @@ class ManageBookController extends Controller
             bookDetail::insert([
                 'bookid'=>Book::where('name','=',$request->name)->value('id'),
                 'genreid'=>$request->input('genre')[$i]
-            ])
-            
+            ]) 
         );
         return redirect()->back(); 
     }
+    public function deleteBook(Request $request){
+        $del = Book::find($request['del']);
+        if(isset($del)){
+            Storage::delete('public/' . $del->cover);
+           
+        }
+        $del->delete();
+        return redirect()->back(); 
+    }
+    
 }

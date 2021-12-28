@@ -90,9 +90,10 @@
                         <td>{{$book[$idx]->price}}</td>
                         <td>
                             <a class="btn btn-primary" href="#" role="button">view Detail</a>
-                            
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            
+                            <form action="/managebookDel" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" name="del" id="del" value="{{$book[$idx]->id}}">Delete</button>
+                            </form>
                         </td>
                         
                     </tr> 
