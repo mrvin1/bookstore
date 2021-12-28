@@ -162,8 +162,8 @@
 
 <div class="footer text-center">
     <div class="text-center text-dark p-3" style="background-color: rgba(252, 186, 3);">
-        © 2021 Copyright:
-        <a class="text-dark"  href="\">Patricia C.K.& Vincent F.W.</a>
+        © 2021 Copyright:Patricia C.K.& Vincent F.W.
+
     </div>
 </div>
 
