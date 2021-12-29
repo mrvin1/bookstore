@@ -16,7 +16,7 @@
     }
 </style>
 <div class="container-fluid">
-    <form method="POST" action="/userdetail">
+    <form method="POST" action="/userdetail/{{$user->id}}">
         @csrf
         <h1>Member's User Detail</h1> <br>
         <div class="form-group">
