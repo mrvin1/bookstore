@@ -43,7 +43,7 @@
                             <td>{{$cart[$idx]->qty * $cart[$idx]->price}}</td> 
                             <td>
                                 <a class="btn btn-primary" href="bookdetail/{{$cart[$idx]->id}}" role="button">view Detail</a>   
-                                <a class="btn btn-primary" href="#" role="button">Edit</a> 
+                                <a class="btn btn-primary" href="editcart/{{$cart[$idx]->id}}" role="button">Edit</a> 
                                 <form action="/viewcart" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-danger" value="{{$cart[$idx]->id}}" name="del">Remove</button>

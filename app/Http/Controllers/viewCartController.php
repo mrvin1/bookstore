@@ -30,6 +30,6 @@ class viewCartController extends Controller
         {
             $grandtotal += $cart[$idx]->qty * $cart[$idx]->price;
         }
-        
     }
+
 }

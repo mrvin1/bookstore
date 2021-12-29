@@ -14,6 +14,7 @@ use App\Http\Controllers\genreController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\genreDetailController;
 use App\Http\Controllers\viewCartController;
+use App\Http\Controllers\editCartController;
 use App\Http\Middleware\Auth;
 
 
@@ -60,11 +61,10 @@ Route::get('/genredetail/{idx}', [genreDetailController::class, 'genreDetailView
 Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])->middleware('adminmiddleware')->name('genredetail');
 Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware');
 Route::post('/viewcart', [viewCartController::class, 'deleteCart'])->middleware('membermiddleware');
-Route::post('/checkout', [viewCartController::class, 'checkout'])->middleware('membermiddleware');
+Route::post('/checkout', [viewCartController::class, 'checkout'])->middleware('membermiddleware'); //belum selesai
+Route::get('/editcart/{idx}', [editCartController::class, 'editcartView'])->middleware('membermiddleware');
+Route::post('/editcart/{idx}', [editCartController::class, 'updateCart'])->middleware('membermiddleware');
 
-Route::get('/editCart', function () {
-    return view('editCart');
-});
 Route::get('/TransactionHistory', function () {
     return view('TransactionHistory');
 });
