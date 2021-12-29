@@ -214,7 +214,7 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%; font-size: 1.5vw;" >
                 <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active" >
-                        <a class="nav-link" href="#">View Cart</span></a>
+                        <a class="nav-link" href="{{route('viewcart')}}">View Cart</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">View Transaction History</a>
@@ -274,7 +274,7 @@
                         @csrf
                         <input type="number" class="form-control" min="1" name="amount" required  >
                     </div>
-                        <button type="submit">Add to cart</a>   
+                        <button class="btn btn-primary" type="submit">Add to cart</a>   
                     </form>
                 </div>
             </div>
