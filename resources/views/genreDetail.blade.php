@@ -16,13 +16,14 @@
     }
 </style>
 <div class="container-fluid">
-    <form>
-        <h1>{{--genre name  --}}Genre Detail</h1> <br>
+    <form action="/genredetail/{{$genre->id}}" method="POST">
+        @csrf
+        <h1>{{$genre->name}} Genre Detail</h1> <br>
         <div class="form-group">
             <label for="Name">Genre Name:</label>
-            <input type="text" class="form-control" id="Name" >
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
-        <input class="btn btn-primary" type="Submit" value="Update">
+        <input class="btn btn-primary" type="Submit" value="Insert">
     </form>
 
     <h1 style="padding-left: 10%;">Book List</h1>
@@ -39,14 +40,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
-                    <tr>
-                        <td>Title</td>
-                        <td>
-                            <a class="btn btn-primary" href="#" role="button">view Detail</a>     
-                        </td>
-                    </tr> 
-                    {{-- @endforeach --}}
+                    @forelse ($genre->book as $idx => $value)
+                        <tr>
+                            <td>{{$genre->book[$idx]->name}}</td>
+                            <td>
+                                <a class="btn btn-primary" href="#" role="button">view Detail</a>     
+                            </td>
+                        </tr> 
+                    @empty
+                        no book
+                    @endforelse
                 </tbody>
             </table>
         </div>

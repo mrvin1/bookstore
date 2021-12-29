@@ -12,6 +12,7 @@ use App\Http\Controllers\userDetailController;
 use App\Http\Controllers\bookDetailController;
 use App\Http\Controllers\genreController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\genreDetailController;
 use App\Http\Middleware\Auth;
 
 
@@ -50,11 +51,10 @@ Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('a
 Route::get('/bookdetail/{idx}', [bookDetailController::class, 'bookDetailView']);
 Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->middleware('adminmiddleware'); //bookdetail update khusus admin
 Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware'); 
+Route::get('/genredetail/{idx}', [genreDetailController::class, 'genreDetailView'])->middleware('adminmiddleware');
+Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])->middleware('adminmiddleware');
 
 
-Route::get('/GenreDetail', function () {
-    return view('genreDetail');
-});
 Route::get('/viewCart', function () {
     return view('viewCart');
 });

@@ -26,7 +26,7 @@ class PasswordController extends Controller
      
         if(!Hash::check($data['old'], $user->password)){
      
-             return back()->with('error','You have entered wrong password');
+             return back()->with('error','wrong password');
      
         }else{
             $user = DB::table('users')->where('email', $dataa->email)->update(['password'=>bcrypt($new['new'])]);
