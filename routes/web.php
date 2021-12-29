@@ -55,7 +55,8 @@ Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('a
 Route::get('/bookdetail/{idx}', [bookDetailController::class, 'bookDetailView'])->name('bookdetail');
 Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->middleware('adminmiddleware') ->name('bookdetail');//bookdetail update khusus admin
 Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware');
-
+Route::get('/genredetail/{idx}', [genreDetailController::class, 'genreDetailView'])->middleware('adminmiddleware');
+Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])->middleware('adminmiddleware');
 
 Route::get('/viewCart', function () {
     return view('viewCart');
