@@ -47,8 +47,8 @@ Route::get('/changepassword', [PasswordController::class, 'passwordView'])->midd
 Route::post('/changepassword', [PasswordController::class, 'changePassword'])->middleware('adminmembermiddleware')->name('changepassword');
 Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->middleware('adminmiddleware')->name('manageuser');
 Route::post('/manageuser', [manageUserController::class, 'deleteUser'])->middleware('adminmiddleware')->name('manageuser');
-Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware')->name('userdetail');
-Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware')->name('userdetail');
+Route::get('/userdetail/{idx}', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware')->name('userdetail');
+Route::post('/userdetail/{idx}', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware')->name('userdetail');
 Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware')->name('genre');
 Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware')->name('genre');
 Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware')->name('genreDel');
