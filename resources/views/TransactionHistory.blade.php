@@ -38,7 +38,7 @@
                             <td>{{$head[$idx]->id}}</td>
                             <td>{{$head[$idx]->date}}</td>
                             <td>
-                                <a class="btn btn-primary" href="#" role="button">view Transaction Detail</a>     
+                                <a class="btn btn-primary" href="/transactionhistdetail/{{$head[$idx]->id}}" role="button">view Transaction Detail</a>     
                             </td>
                         </tr> 
                     @empty

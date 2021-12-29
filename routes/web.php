@@ -67,6 +67,6 @@ Route::post('/editcart/{idx}', [editCartController::class, 'updateCart'])->middl
 Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware')->name('viewcart');
 Route::post('/viewcart', [viewCartController::class, 'deleteCart'])->middleware('membermiddleware')->name('viewcart');
 
-Route::get('/transactionhisthead', [transactionHistHeadController::class, 'headView'])->middleware('membermiddleware');
+Route::get('/transactionhisthead', [transactionHistHeadController::class, 'headView'])->middleware('membermiddleware')->name('transactionhist');
 Route::get('/transactionhistdetail/{uid}', [transactionHistDetController::class, 'detailView'])->middleware('membermiddleware');
 

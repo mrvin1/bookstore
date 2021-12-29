@@ -42,8 +42,7 @@
                             <td>{{$det[$idx]->qty}}</td>   
                             <td>{{$det[$idx]->qty*$det[$idx]->price}}</td> 
                             <td>
-                                <a class="btn btn-primary" href="#" role="button">View Book Detail</a>  
-                                {{-- go to member book detail page--}}
+                                <a class="btn btn-primary" href="/bookdetail/{{$det[$idx]->bookId}}" role="button">View Book Detail</a>  
                             </td>
                         </tr> 
                     @empty

@@ -123,7 +123,7 @@
                         <a class="nav-link" href="{{route('viewcart')}}">View Cart</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">View Transaction History</a>
+                        <a class="nav-link" href="{{route('transactionhist')}}">View Transaction History</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  style="font-size: 1.5vw; aria-haspopup="true" aria-expanded="false">
