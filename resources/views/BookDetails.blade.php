@@ -58,7 +58,7 @@
     </div>
 
 <div class="content" > 
-    <h1 style="margin-left: 10%">  {{$book->name}}  Book Detail </h1> 
+    <h1 class="text-center">  {{$book->name}}  Book Detail </h1> 
     <div class="container-fluid" style="background-color: rgb(255, 233, 171); ">
         <div class="row justify-content" >
             <div class="col-md-4" style="padding-top: 2vw; padding-left: 10%;">
@@ -139,7 +139,7 @@
     </body>
 <div class="content" > 
 
-    <h1 style="margin-left: 10%"> {{$book->name}} Book Detail </h1>  
+    <h1 class="text-center"> {{$book->name}} Book Detail </h1>  
          
     <div class="container-fluid">
     <div class="row justify-content" >
@@ -164,10 +164,11 @@
                     <label for="Synopsis">Genre(s)</label> 
                     @forelse ($genre as $idx=>$value)
                         <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
-                            {{$genre[$idx]->name}}
-                        @empty
+                        {{$genre[$idx]->name}}      
+                       
+                    @empty
                         no genre data
-                        @endforelse
+                    @endforelse
                         
                     </div>
                     <div class="form-group">
@@ -234,7 +235,7 @@
 
 </body>
 <div class="content" > 
-    <h1 style="margin-left: 10%">   {{$book->name}}     Book Detail </h1> 
+    <h1 class="text-center">   {{$book->name}}     Book Detail </h1> 
             <div class="container-fluid" style="background-color: rgb(255, 233, 171); ">
                 <div class="row justify-content" >
                     <div class="col-md-4" style="padding-top: 2vw; padding-left: 10%;">
