@@ -20,6 +20,6 @@ class editCartController extends Controller
         ]);
         $cart = DB::table('cart')->where('bookId', $idx)->update(['qty'=>$newCart['qty']]);
   
-        return redirect()->back();
+        return redirect('viewcart');
     }
 }

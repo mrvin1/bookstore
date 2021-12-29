@@ -14,10 +14,8 @@ class TransactionHeader extends Migration
     public function up()
     {
         Schema::create('transactionHeader', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->String('id',255)->primary();
             $table->dateTime('date', $precision = 0);
-            $table->UnsignedBigInteger('cartId');
-            $table->foreign('cartId')->references('id')->on('cart');
         });
     }
 

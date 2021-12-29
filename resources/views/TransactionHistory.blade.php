@@ -33,15 +33,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
-                    <tr>
-                        <td>Transaction ID</td>
-                        <td>date</td>
-                        <td>
-                            <a class="btn btn-primary" href="#" role="button">view Transaction Detail</a>     
-                        </td>
-                    </tr> 
-                    {{-- @endforeach --}}
+                    @forelse ($head as $idx => $value)
+                        <tr>
+                            <td>{{$head[$idx]->id}}</td>
+                            <td>{{$head[$idx]->date}}</td>
+                            <td>
+                                <a class="btn btn-primary" href="#" role="button">view Transaction Detail</a>     
+                            </td>
+                        </tr> 
+                    @empty
+                        no transaction history
+                    @endforelse
+                    
                 </tbody>
             </table>
         </div>

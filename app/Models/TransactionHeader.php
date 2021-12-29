@@ -10,10 +10,10 @@ class TransactionHeader extends Model
     use HasFactory;
     protected $table= "transactionHeader";
     protected $guarded = [];
+    protected $casts = [
+        'id' => 'string'
+    ];
 
-    public function cart(){
-        return $this->hasOne(Cart::class);
-    }
     public function transactionDetail(){
         return $this->hasMany(transactionDetail::class);
     }

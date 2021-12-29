@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use  Carbon\Carbon;
 
 class TransactionHeaderSeeder extends Seeder
@@ -15,16 +16,16 @@ class TransactionHeaderSeeder extends Seeder
     public function run()
     {
         \DB::table('transactionHeader')->insert([
+            'id'=>Str::orderedUuid(),
             'date'=>Carbon::now('Asia/Jakarta'),
-            'cartId'=>1
         ]);
         \DB::table('transactionHeader')->insert([
+            'id'=>Str::orderedUuid(),
             'date'=>Carbon::now('Asia/Jakarta'),
-            'cartId'=>2
         ]);
         \DB::table('transactionHeader')->insert([
+            'id'=>Str::orderedUuid(),
             'date'=>Carbon::now('Asia/Jakarta'),
-            'cartId'=>3
         ]);
     }
 }

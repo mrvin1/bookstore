@@ -14,16 +14,19 @@ class TransactionDetailSeeder extends Seeder
     public function run()
     {
         \DB::table('transactionDetail')->insert([
-            'transactionID'=>1,
-            'bookId'=>5
+            'transactionID'=>'953a904f-8d98-4c4f-b174-86174a18be0e',
+            'bookId'=>5,
+            'qty'=>2
         ]);
         \DB::table('transactionDetail')->insert([
-            'transactionID'=>2,
-            'bookId'=>6
+            'transactionID'=>'953a904f-8d98-4c4f-b174-86174a18be0e',
+            'bookId'=>6,
+            'qty'=>3
         ]);
        \DB::table('transactionDetail')->insert([
-            'transactionID'=>3,
-            'bookId'=>1
+            'transactionID'=>'953a904f-8d98-4c4f-b174-86174a18be0e',
+            'bookId'=>1,
+            'qty'=>1
         ]);
     }
 }

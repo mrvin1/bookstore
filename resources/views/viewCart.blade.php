@@ -57,7 +57,7 @@
             </table>
             <div class="total">
                 <h4>Grand total: IDR {{$gt}}  </h4>
-                <form action="/" method="POST">
+                <form action="/checkout" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-danger">Checkout</button> 
                 </form>
