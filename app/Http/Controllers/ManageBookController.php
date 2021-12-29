@@ -48,9 +48,9 @@ class ManageBookController extends Controller
     }
     public function deleteBook(Request $request){
         $del = Book::find($request['del']);
+        DB::table('bookdetail')->where('bookid', '=', $request['del'])->delete();
         if(isset($del)){
-            Storage::delete('public/' . $del->cover);
-           
+            Storage::delete('public/' . $del->cover);  
         }
         $del->delete();
         return redirect()->back(); 
