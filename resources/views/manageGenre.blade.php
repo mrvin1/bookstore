@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{$genre[$idx]->name}}</td>
                         <td>
-                            <a class="btn btn-primary" href="#" role="button">view Detail</a>
+                            <a class="btn btn-primary" href="genredetail/{{$genre[$idx]->id}}" role="button">view Detail</a>
                             <form action="/genreDel" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger" name="del" value="{{$genre[$idx]->name}}">Delete</button>
