@@ -64,8 +64,8 @@
                           Hello, Member
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                            <a class="dropdown-item" href="{{route('changepassword')}}">Change Password</a>
                         </div>
                     </li>
                 </ul>

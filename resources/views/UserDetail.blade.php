@@ -21,14 +21,20 @@
         <h1>Member's User Detail</h1> <br>
         <div class="form-group">
             <label for="Name">Name:</label>
-            <input type="text" class="form-control" id="Name" name="name" required >
+            <input type="text" class="form-control" id="Name" name="name" 
+            {{-- value="{{$newUser->name}}" --}}
+             required >
         </div>
         <div class="form-group">
             <label for="Email">Email address:</label>
-            <input type="email" class="form-control" id="Email" name="email" required>
+            <input type="email" class="form-control" id="Email" name="email" 
+            {{-- value="{{$newUser->email}}" --}}
+             required>
         </div>
         <div class="form-group">
-            <label for="Role">Role:</label>
+            <label for="Role" 
+            {{-- value="{{$newUser->role}}" --}}
+            >Role:</label>
             <select class="form-control" id="Role" name="role">
                 <option value="admin" id="Role">Admin</option>
                 <option value="member" id="Role">Member</option>

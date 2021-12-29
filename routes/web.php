@@ -27,29 +27,33 @@ use App\Http\Middleware\Auth;
 |
 */
 
-Route::get('/login', [LoginController::class, 'viewLogin']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/register', [RegisterController::class, 'viewRegister']);
-Route::post('/register', [RegisterController::class, 'register']);
-Route::get('/managebook', [ManageBookController::class, 'viewBook'])->middleware('adminmiddleware');
-Route::post('/managebook', [ManageBookController::class, 'insertBook'])->middleware('adminmiddleware');
-Route::post('/managebookDel', [ManageBookController::class, 'deleteBook'])->middleware('adminmiddleware');
-Route::get('/home', [HomeController::class, 'viewHome']);
-Route::post('/home', [HomeController::class, 'searchBook']);
-Route::get('/profile', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware'); 
-Route::post('/profile', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware');
-Route::get('/changepassword', [PasswordController::class, 'passwordView'])->middleware('adminmembermiddleware');
-Route::post('/changepassword', [PasswordController::class, 'changePassword'])->middleware('adminmembermiddleware');
-Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->middleware('adminmiddleware');
-Route::post('/manageuser', [manageUserController::class, 'deleteUser'])->middleware('adminmiddleware');
-Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware');
-Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware');
-Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware');
-Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware');
-Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware');
-Route::get('/bookdetail/{idx}', [bookDetailController::class, 'bookDetailView']);
-Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->middleware('adminmiddleware'); //bookdetail update khusus admin
-Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware'); 
+Route::get('/login', [LoginController::class, 'viewLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/register', [RegisterController::class, 'viewRegister'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::get('/managebook', [ManageBookController::class, 'viewBook'])->middleware('adminmiddleware')->name('managebook');
+Route::post('/managebook', [ManageBookController::class, 'insertBook'])->middleware('adminmiddleware')->name('managebook');
+Route::post('/managebookDel', [ManageBookController::class, 'deleteBook'])->middleware('adminmiddleware')->name('managebookDel');
+// home
+Route::get('/', [HomeController::class, 'viewHome'])->name('home');
+Route::post('/', [HomeController::class, 'searchBook'])->name('home');
+Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
+Route::post('/home', [HomeController::class, 'searchBook'])->name('home');
+
+Route::get('/profile', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware')->name('profile');
+Route::post('/profile', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware')->name('profile');
+Route::get('/changepassword', [PasswordController::class, 'passwordView'])->middleware('adminmembermiddleware')->name('changepassword');
+Route::post('/changepassword', [PasswordController::class, 'changePassword'])->middleware('adminmembermiddleware')->name('changepassword');
+Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->middleware('adminmiddleware')->name('manageuser');
+Route::post('/manageuser', [manageUserController::class, 'deleteUser'])->middleware('adminmiddleware')->name('manageuser');
+Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware')->name('userdetail');
+Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware')->name('userdetail');
+Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware')->name('genre');
+Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware')->name('genre');
+Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware')->name('genreDel');
+Route::get('/bookdetail/{idx}', [bookDetailController::class, 'bookDetailView'])->name('bookdetail');
+Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->middleware('adminmiddleware') ->name('bookdetail');//bookdetail update khusus admin
+Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware');
 
 
 Route::get('/GenreDetail', function () {
