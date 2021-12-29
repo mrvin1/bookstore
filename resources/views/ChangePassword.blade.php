@@ -99,7 +99,7 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%; font-size: 1.5vw;" >
                 <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active" >
-                        <a class="nav-link" href="#">View Cart</span></a>
+                        <a class="nav-link" href="{{route('viewcart')}}">View Cart</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">View Transaction History</a>

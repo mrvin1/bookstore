@@ -59,11 +59,11 @@ Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->m
 Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware');
 Route::get('/genredetail/{idx}', [genreDetailController::class, 'genreDetailView'])->middleware('adminmiddleware')->name('genredetail');
 Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])->middleware('adminmiddleware')->name('genredetail');
-Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware');
-Route::post('/viewcart', [viewCartController::class, 'deleteCart'])->middleware('membermiddleware');
 Route::post('/checkout', [viewCartController::class, 'checkout'])->middleware('membermiddleware'); //belum selesai
 Route::get('/editcart/{idx}', [editCartController::class, 'editcartView'])->middleware('membermiddleware');
 Route::post('/editcart/{idx}', [editCartController::class, 'updateCart'])->middleware('membermiddleware');
+Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware')->name('viewcart');
+Route::post('/viewcart', [viewCartController::class, 'deleteCart'])->middleware('membermiddleware')->name('viewcart');
 
 Route::get('/TransactionHistory', function () {
     return view('TransactionHistory');
