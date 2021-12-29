@@ -41,14 +41,14 @@ Route::post('/', [HomeController::class, 'searchBook'])->name('home');
 Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
 Route::post('/home', [HomeController::class, 'searchBook'])->name('home');
 
-Route::get('/profile', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware')->name('profile');
-Route::post('/profile', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware')->name('profile');
+Route::get('/profile/{idx}', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware')->name('profile');
+Route::post('/profile/{idx}', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware')->name('profile');
 Route::get('/changepassword', [PasswordController::class, 'passwordView'])->middleware('adminmembermiddleware')->name('changepassword');
 Route::post('/changepassword', [PasswordController::class, 'changePassword'])->middleware('adminmembermiddleware')->name('changepassword');
 Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->middleware('adminmiddleware')->name('manageuser');
 Route::post('/manageuser', [manageUserController::class, 'deleteUser'])->middleware('adminmiddleware')->name('manageuser');
-Route::get('/userdetail/{idx}', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware')->name('userdetail');
-Route::post('/userdetail/{idx}', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware')->name('userdetail');
+Route::get('/userdetail', [userDetailController::class, 'userDetailView'])->middleware('adminmiddleware')->name('userdetail');
+Route::post('/userdetail', [userDetailController::class, 'userEdit'])->middleware('adminmiddleware')->name('userdetail');
 Route::get('/genre', [genreController::class, 'genreView'])->middleware('adminmiddleware')->name('genre');
 Route::post('/genre', [genreController::class, 'genreInsert'])->middleware('adminmiddleware')->name('genre');
 Route::post('/genreDel', [genreController::class, 'deleteGenre'])->middleware('adminmiddleware')->name('genreDel');
@@ -57,6 +57,9 @@ Route::post('/bookdetail/{idx}', [bookDetailController::class, 'updateBook'])->m
 Route::post('/addcart/{idx}', [CartController::class, 'addCart'])->middleware('membermiddleware');
 Route::get('/genredetail/{idx}', [genreDetailController::class, 'genreDetailView'])->middleware('adminmiddleware')->name('genredetail');
 Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])->middleware('adminmiddleware')->name('genredetail');
+
+Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware');
+
 
 Route::get('/viewCart', function () {
     return view('viewCart');
