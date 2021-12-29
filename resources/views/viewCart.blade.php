@@ -40,24 +40,27 @@
                             <td>{{$cart[$idx]->author}}</td>
                             <td>{{$cart[$idx]->price}}</td>
                             <td>{{$cart[$idx]->qty}}</td>   
-                            <td>{{$grandtotal += $cart[$idx]->qty * $cart[$idx]->price}}</td> {{-- price*qty --}}
+                            <td>{{$cart[$idx]->qty * $cart[$idx]->price}}</td> 
                             <td>
                                 <a class="btn btn-primary" href="#" role="button">view Detail</a>   
-                                <a class="btn btn-primary" href="#" role="button">Edit</a>   
-                                <button type="button" class="btn btn-danger">Remove</button>
+                                <a class="btn btn-primary" href="#" role="button">Edit</a> 
+                                <form action="/viewcart" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger" value="{{$cart[$idx]->id}}" name="del">Remove</button>
+                                </form>  
                             </td>
                         </tr> 
                     @empty
                         empty cart
                     @endforelse
-                    
                 </tbody>
             </table>
             <div class="total">
-                <h4>Grand total: IDR </h4>
-                {{echo($grandtotal);}}
-
-                <a class="btn btn-primary" href="#" role="button">Checkout</a>   
+                <h4>Grand total: {{$gt}} IDR </h4>
+                <form action="/" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Checkout</button> 
+                </form>
             </div>
         </div>
     </div>
