@@ -58,7 +58,7 @@
                     <input type="text" class="form-control" >
                 </div>
                 
-                <a class="btn btn-primary" href="#" role="button">Upadate</a>   
+                <a class="btn btn-primary" href="#" role="button">Update</a>   
 
             </div>
         </div>
