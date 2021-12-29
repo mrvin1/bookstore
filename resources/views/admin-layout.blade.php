@@ -58,9 +58,9 @@
                           Manage
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Book</a>
-                          <a class="dropdown-item" href="#">Genre</a>
-                          <a class="dropdown-item" href="#">User</a>
+                          <a class="dropdown-item" href="{{route('managebook')}}">Book</a>
+                          <a class="dropdown-item" href="{{route('genre')}}">Genre</a>
+                          <a class="dropdown-item" href="{{route('manageuser')}}">User</a>
 
                         </div>
                     </li>
@@ -69,8 +69,8 @@
                           Hello, Admin
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Change Password</a>
+                          <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                          <a class="dropdown-item" href="{{route('changepassword')}}">Change Password</a>
                         </div>
                     </li>
                 </ul>

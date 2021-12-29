@@ -24,7 +24,7 @@
                             <td>{{$user[$idx]->role}}</td>
                             @if($user[$idx]->role==='admin')
                             <td>
-                                <a class="btn btn-primary" href="#" role="button">view Detail</a>
+                                <a class="btn btn-primary" href="{{route}}" role="button">view Detail</a>
                             </td> 
                             @else
                             <td>

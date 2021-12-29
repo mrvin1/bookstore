@@ -54,8 +54,8 @@
             </div>
             <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%">
                 <ul class="navbar-nav ml-auto" >
-                    <a class="navbar-login" href="">Register</a>
-                    <a class="navbar-login" href="">Login</a>
+                    <a class="navbar-login" href="{{route('register')}}">Register</a>
+                    <a class="navbar-login" href="{{route('login')}}">Login</a>
                 </ul>
             </div>
         </nav>

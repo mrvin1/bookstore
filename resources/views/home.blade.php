@@ -53,8 +53,8 @@
             </div>
             <div class="collapse navbar-collapse " id="navbarSupportedContent" style="padding-right:3%">
                 <ul class="navbar-nav ml-auto" >
-                    <a class="navbar-login" href="">Register</a>
-                    <a class="navbar-login" href="">Login</a>
+                    <a class="navbar-login" href="{{route('register')}}">Register</a>
+                    <a class="navbar-login" href="{{route('login')}}">Login</a>
                 </ul>
             </div>
         </nav>
@@ -81,9 +81,9 @@
                               Manage
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Book</a>
-                              <a class="dropdown-item" href="#">Genre</a>
-                              <a class="dropdown-item" href="#">User</a>
+                                <a class="dropdown-item" href="{{route('managebook')}}">Book</a>
+                                <a class="dropdown-item" href="{{route('genre')}}">Genre</a>
+                                <a class="dropdown-item" href="{{route('manageuser')}}">User</a>
     
                             </div>
                         </li>
@@ -92,8 +92,8 @@
                               Hello, Admin
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Profile</a>
-                              <a class="dropdown-item" href="#">Change Password</a>
+                                <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                                <a class="dropdown-item" href="{{route('changepassword')}}">Change Password</a>
                             </div>
                         </li>
                     </ul>
@@ -130,8 +130,8 @@
                           Hello, Member
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                            <a class="dropdown-item" href="{{route('changepassword')}}">Change Password</a>
                         </div>
                     </li>
                 </ul>
@@ -163,7 +163,7 @@
                 <h3 class="card-title">{{$book[$idx]->name}}</h3><br>
                 <p class="card-text">{{$book[$idx]->author}}</p>
                 <p class="card-text">Rp. {{$book[$idx]->price}}</p>
-                <a href="#" class="btn btn-primary">View Details</a>
+                <a href="bookdetail/{{$book[$idx]->id}}" class="btn btn-primary">View Details</a>
             </div>
         </div>
         @empty
@@ -172,7 +172,6 @@
         </div>
     {{$book->links()}} 
     </div>
-
     
 {{-- @endsection --}}
 
