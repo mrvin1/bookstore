@@ -23,7 +23,7 @@
             <label for="Name">Genre Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>
         </div>
-        <input class="btn btn-primary" type="Submit" value="Insert">
+        <input class="btn btn-primary" type="Submit" value="Update">
     </form>
 
     <h1 style="padding-left: 10%;">Book List</h1>
@@ -44,7 +44,7 @@
                         <tr>
                             <td>{{$genre->book[$idx]->name}}</td>
                             <td>
-                                <a class="btn btn-primary" href="#" role="button">view Detail</a>     
+                                <a class="btn btn-primary" href="{{route ('bookdetail', ['idx'=>$genre->book[$idx]->id]) }}" role="button">view Detail</a>     
                             </td>
                         </tr> 
                     @empty
