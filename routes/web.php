@@ -41,8 +41,8 @@ Route::post('/', [HomeController::class, 'searchBook'])->name('home');
 Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
 Route::post('/home', [HomeController::class, 'searchBook'])->name('home');
 
-Route::get('/profile/{idx}', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware')->name('profile');
-Route::post('/profile/{idx}', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware')->name('profile');
+Route::get('/profile', [ProfileController::class, 'profileView'])->middleware('adminmembermiddleware')->name('profile');
+Route::post('/profile', [ProfileController::class, 'changeName'])->middleware('adminmembermiddleware')->name('profile');
 Route::get('/changepassword', [PasswordController::class, 'passwordView'])->middleware('adminmembermiddleware')->name('changepassword');
 Route::post('/changepassword', [PasswordController::class, 'changePassword'])->middleware('adminmembermiddleware')->name('changepassword');
 Route::get('/manageuser', [manageUserController::class, 'viewUserController'])->middleware('adminmiddleware')->name('manageuser');
