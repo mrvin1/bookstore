@@ -34,7 +34,7 @@ Route::get('/register', [RegisterController::class, 'viewRegister'])->name('regi
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::get('/managebook', [ManageBookController::class, 'viewBook'])->middleware('adminmiddleware')->name('managebook');
 Route::post('/managebook', [ManageBookController::class, 'insertBook'])->middleware('adminmiddleware')->name('managebook');
-Route::post('/managebookDel', [ManageBookController::class, 'deleteBook'])->middleware('adminmiddleware')->name('managebookDel');
+Route::post('/managebookDel', [ManageBookController::class, 'deleteBook'])->middleware('adminmiddleware');
 // home
 Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 Route::post('/', [HomeController::class, 'searchBook'])->name('home');

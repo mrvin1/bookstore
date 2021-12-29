@@ -89,7 +89,7 @@
                         </td> 
                         <td>{{$book[$idx]->price}}</td>
                         <td>
-                            <a class="btn btn-primary" href="#" role="button">view Detail</a>
+                            <a class="btn btn-primary" href="bookdetail/{{$book[$idx]->id}}" role="button">view Detail</a>
                             <form action="/managebookDel" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger" name="del" id="del" value="{{$book[$idx]->id}}">Delete</button>
