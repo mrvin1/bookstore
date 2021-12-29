@@ -22,20 +22,19 @@
         <div class="form-group">
             <label for="Name">Name:</label>
             <input type="text" class="form-control" id="Name" name="name" 
-            {{-- value="{{$newUser->name}}" --}}
+             value="{{$user->name}}"
              required >
         </div>
         <div class="form-group">
             <label for="Email">Email address:</label>
             <input type="email" class="form-control" id="Email" name="email" 
-            {{-- value="{{$newUser->email}}" --}}
+            value="{{$user->email}}"
              required>
         </div>
         <div class="form-group">
-            <label for="Role" 
-            {{-- value="{{$newUser->role}}" --}}
-            >Role:</label>
-            <select class="form-control" id="Role" name="role">
+            <label for="Role">Role:</label>
+            <select class="form-control" id="Role" name="role" >
+                <option value="{{$user->role}}" id="Role">{{$user->role}}</option>
                 <option value="admin" id="Role">Admin</option>
                 <option value="member" id="Role">Member</option>
             </select>
