@@ -34,25 +34,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
-                    <tr>
-                        <td>Book Title</td>
-                        <td>Book Author</td>
-                        <td>Price</td>
-                        <td>Quantity</td>   
-                        <td>Sub Total</td> {{-- price*qty --}}
-                        <td>
-                            <a class="btn btn-primary" href="#" role="button">view Detail</a>   
-                            <a class="btn btn-primary" href="#" role="button">Edit</a>   
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </td>
-                    </tr> 
-                    {{-- @endforeach --}}
+                    @forelse ($cart as $idx => $value )
+                        <tr>
+                            <td>{{$cart[$idx]->name}}</td>
+                            <td>{{$cart[$idx]->author}}</td>
+                            <td>{{$cart[$idx]->price}}</td>
+                            <td>{{$cart[$idx]->qty}}</td>   
+                            <td>{{$grandtotal += $cart[$idx]->qty * $cart[$idx]->price}}</td> {{-- price*qty --}}
+                            <td>
+                                <a class="btn btn-primary" href="#" role="button">view Detail</a>   
+                                <a class="btn btn-primary" href="#" role="button">Edit</a>   
+                                <button type="button" class="btn btn-danger">Remove</button>
+                            </td>
+                        </tr> 
+                    @empty
+                        empty cart
+                    @endforelse
+                    
                 </tbody>
             </table>
             <div class="total">
                 <h4>Grand total: IDR </h4>
-                {{-- CODE FOR SUM THE SUBTOTAL --}}
+                {{echo($grandtotal);}}
 
                 <a class="btn btn-primary" href="#" role="button">Checkout</a>   
             </div>

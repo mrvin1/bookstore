@@ -13,6 +13,7 @@ use App\Http\Controllers\bookDetailController;
 use App\Http\Controllers\genreController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\genreDetailController;
+use App\Http\Controllers\viewCartController;
 use App\Http\Middleware\Auth;
 
 
@@ -61,9 +62,6 @@ Route::post('/genredetail/{idx}', [genreDetailController::class, 'genreUpdate'])
 Route::get('/viewcart', [viewCartController::class, 'viewCart'])->middleware('membermiddleware');
 
 
-Route::get('/viewCart', function () {
-    return view('viewCart');
-});
 Route::get('/editCart', function () {
     return view('editCart');
 });
