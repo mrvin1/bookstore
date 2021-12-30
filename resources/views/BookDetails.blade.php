@@ -160,8 +160,16 @@
                     <label for="Synopsis">Synopsis</label>
                     <textarea class="form-control" id="synopsis" name="synopsis" rows="10" required >{{$book->synopsis}}</textarea>
                 </div>
+                <br>
                 <div class="Book-Genre">
-                    <label for="Synopsis">Genre(s)</label> 
+                    <label for="Synopsis">Genre(s):</label> 
+                    
+                    @forelse ($book->genre as $idy =>$value )
+                    {{$book->genre[$idy]->name}}, 
+                    @empty
+                        no genre
+                    @endforelse 
+                    <br>
                     @forelse ($genre as $idx=>$value)
                     <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
                     {{$genre[$idx]->name}}      
