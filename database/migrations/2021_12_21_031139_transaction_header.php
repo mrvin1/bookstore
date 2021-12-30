@@ -15,6 +15,8 @@ class TransactionHeader extends Migration
     {
         Schema::create('transactionHeader', function (Blueprint $table) {
             $table->String('id',255)->primary();
+            $table->String('email',255);
+            $table->foreign('email')->references('email')->on('users');
             $table->dateTime('date', $precision = 0);
         });
     }

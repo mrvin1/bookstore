@@ -7,14 +7,15 @@ use App\Models\TransactionHeader;
 use App\Models\TransactionDetail;
 use Illuminate\Support\Str;
 use  Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
 class viewCartController extends Controller
 {
-
     public function viewCart(){
-        $cart = Cart::join('book','bookId','=', 'book.id')->get();
+        $user = Auth::user();
+        $cart = Cart::join('book','bookId','=', 'book.id')->where('clientEmail',$user->email)->get();
         $grandtotal=0;
         for($idx = 0; $idx<sizeof($cart);$idx++)
         {
@@ -28,7 +29,8 @@ class viewCartController extends Controller
         return redirect()->back();
     }
     public function checkout(Request $request){
-        $cart = Cart::join('book','bookId','=', 'book.id')->get();
+        $user = Auth::user();
+        $cart = Cart::join('book','bookId','=', 'book.id')->where('clientEmail',$user->email)->get();
         $grandtotal=0;
         for($idx = 0; $idx<sizeof($cart);$idx++)
         {
@@ -38,6 +40,7 @@ class viewCartController extends Controller
         $datetime = Carbon::now('Asia/Jakarta');
         $transactionHeader = new TransactionHeader;
         $transactionHeader->id = $uuidGenerator;
+        $transactionHeader->email = $user->email;
         $transactionHeader->date = $datetime;
         $transactionHeader->timestamps=false;
         $transactionHeader->save();

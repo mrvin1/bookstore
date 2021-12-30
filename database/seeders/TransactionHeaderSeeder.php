@@ -17,14 +17,17 @@ class TransactionHeaderSeeder extends Seeder
     {
         \DB::table('transactionHeader')->insert([
             'id'=>Str::orderedUuid(),
+            'email'=>'bunga@gmail.com',
             'date'=>Carbon::now('Asia/Jakarta'),
         ]);
         \DB::table('transactionHeader')->insert([
             'id'=>Str::orderedUuid(),
+            'email'=>'bunga@gmail.com',
             'date'=>Carbon::now('Asia/Jakarta'),
         ]);
         \DB::table('transactionHeader')->insert([
             'id'=>Str::orderedUuid(),
+            'email'=>'bunga@gmail.com',
             'date'=>Carbon::now('Asia/Jakarta'),
         ]);
     }
