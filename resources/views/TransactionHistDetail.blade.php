@@ -46,7 +46,10 @@
                             </td>
                         </tr> 
                     @empty
+                    <td>
+
                         no book..
+                    </td>
                     @endforelse
                 </tbody>
             </table>

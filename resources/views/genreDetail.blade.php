@@ -46,9 +46,12 @@
                             <td>
                                 <a class="btn btn-primary" href="{{route ('bookdetail', ['idx'=>$genre->book[$idx]->id]) }}" role="button">view Detail</a>     
                             </td>
-                        </tr> 
+                        </tr>  
                     @empty
-                        no book
+                        <td>
+                            no book
+                        </td>
+                    
                     @endforelse
                 </tbody>
             </table>

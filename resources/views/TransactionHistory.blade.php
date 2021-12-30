@@ -42,7 +42,10 @@
                             </td>
                         </tr> 
                     @empty
-                        no transaction history
+                        <td>
+                            no transaction history
+                        </td>
+                        <td></td>
                     @endforelse
                     
                 </tbody>

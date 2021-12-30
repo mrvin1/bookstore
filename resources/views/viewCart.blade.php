@@ -51,7 +51,14 @@
                             </td>
                         </tr> 
                     @empty
-                        empty cart
+                    <td>empty cart</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>   
+                    <td></td>
+                    <td>
+                       
+                    </td>
                     @endforelse
                 </tbody>
             </table>

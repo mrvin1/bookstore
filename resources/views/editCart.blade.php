@@ -19,8 +19,8 @@
     <div class="row justify-content" >
         <div class="col-md-4" style="padding-top: 2vw">
 
-            <h2>Book Title:</h2>
-            {{$book->name}}  
+            <h2>Book Title: {{$book->name}} </h2>
+             
             <img src="{{url('/storage/'. $book->cover)}}" alt="">
         </div>  
         <div class="col-md-7"> 

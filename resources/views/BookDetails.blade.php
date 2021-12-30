@@ -163,13 +163,13 @@
                 <div class="Book-Genre">
                     <label for="Synopsis">Genre(s)</label> 
                     @forelse ($genre as $idx=>$value)
-                        <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
-                        {{$genre[$idx]->name}}      
-                       
+                    <input type="checkbox" class="checkbox" id="=genre[]" name="genre[]" value="{{$genre[$idx]->id}}">
+                    {{$genre[$idx]->name}}      
+                    
                     @empty
-                        no genre data
+                    no genre data
                     @endforelse
-                        
+                    <p class="text-danger">Please check the Genre(s) before updating</p>
                     </div>
                     <div class="form-group">
                         <label for="Author">Price</label>
@@ -217,7 +217,7 @@
                         <a class="nav-link" href="{{route('viewcart')}}">View Cart</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">View Transaction History</a>
+                        <a class="nav-link" href="{{route('transactionhist')}}">View Transaction History</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  style="font-size: 1.5vw; aria-haspopup="true" aria-expanded="false">
@@ -260,6 +260,7 @@
                     @empty
                         no genre
                     @endforelse
+
                 </p><br>
                 <p> Price: Rp.
                     {{$book->price}}
