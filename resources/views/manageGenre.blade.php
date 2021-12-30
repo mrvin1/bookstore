@@ -50,7 +50,6 @@
                     @empty
                         No genre!
                     @endforelse
-                    
                 </tbody>
             </table>
         </div>

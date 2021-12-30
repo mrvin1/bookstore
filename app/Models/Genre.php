@@ -11,8 +11,10 @@ class Genre extends Model
     protected $table= "Genre";
     protected $guarded = [];
     
-
     public function book(){
          return $this->belongsToMany(Book::class,'bookdetail','genreId','bookId'); 
+    }
+    public function bookDetail(){
+        return $this->hasMany(bookDetail::class);
     }
 }

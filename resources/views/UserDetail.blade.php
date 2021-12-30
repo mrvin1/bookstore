@@ -30,6 +30,7 @@
             <input type="email" class="form-control" id="Email" name="email" 
             value="{{$user->email}}"
              required>
+             <input type="email" name="emailnow" id="" hidden value="{{$user->email}}">
         </div>
         <div class="form-group">
             <label for="Role">Role:</label>

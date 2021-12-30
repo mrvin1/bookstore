@@ -21,9 +21,11 @@ class genreController extends Controller
     }
     public function deleteGenre(Request $request)
     {
-        $reqDel=$request['del'];
+        $reqDel=$request['del']; 
         $genreDel=Genre::where('name',$reqDel);
         $genreDel->delete();
-        return redirect()->back();
+        return redirect()->back();   
     }
+
+        
 }

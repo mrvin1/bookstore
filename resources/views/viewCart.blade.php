@@ -46,7 +46,8 @@
                                 <a class="btn btn-primary" href="editcart/{{$cart[$idx]->id}}" role="button">Edit</a> 
                                 <form action="/viewcart" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger" value="{{$cart[$idx]->id}}" name="del">Remove</button>
+                                    <button type="submit" class="btn btn-danger" value="{{$idx}}" name="del">Remove</button>
+                                    
                                 </form>  
                             </td>
                         </tr> 

@@ -24,7 +24,7 @@ class viewCartController extends Controller
         return view('viewCart',['cart'=>$cart, 'gt'=>$grandtotal]);
     }
     public function deleteCart(Request $request){
-        $cartdel = Cart::where('bookId',$request['del'])->delete();;
+        $cartdel = Cart::where('id',$request->del+1)->delete();;
         return redirect()->back();
     }
     public function checkout(Request $request){
