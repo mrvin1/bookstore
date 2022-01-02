@@ -25,7 +25,12 @@ class viewCartController extends Controller
         return view('viewCart',['cart'=>$cart, 'gt'=>$grandtotal]);
     }
     public function deleteCart(Request $request){
-        $cartdel = Cart::where('id',$request->del+1)->delete();;
+        $cartdel = Cart::where('id',$request->del+1)->delete();
+        $cart = Cart::all();
+        if(sizeof($cart)<2 && isset($request->del))
+        {
+            Cart::truncate();
+        }
         return redirect()->back();
     }
     public function checkout(Request $request){
