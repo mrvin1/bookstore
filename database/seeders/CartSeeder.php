@@ -16,23 +16,17 @@ class CartSeeder extends Seeder
         \DB::table('cart')->insert([
             'clientEmail' => 'bunga@gmail.com',
             'bookid' => 5,
-            'qty' => 1,
-            'totalPrice'=> 275000,
-            'subTotal' => 275000
+            'qty' => 1
         ]);
         \DB::table('cart')->insert([
             'clientEmail' => 'bunga@gmail.com',
             'bookid' => 6,
-            'qty' => 2,
-            'totalPrice'=> 319000,
-            'subTotal' => 638000
+            'qty' => 2
         ]);
         \DB::table('cart')->insert([
             'clientEmail' => 'bunga@gmail.com',
             'bookid' => 1,
-            'qty' => 1,
-            'totalPrice'=> 300000,
-            'subTotal' => 300000
+            'qty' => 1
         ]);
     }
 }

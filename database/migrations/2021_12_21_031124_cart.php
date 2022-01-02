@@ -16,8 +16,6 @@ class Cart extends Migration
         Schema::create('cart', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->bigInteger('qty');
-            $table->double('totalPrice');
-            $table->double('subTotal');
             $table->String('clientEmail');
             $table->foreign('clientEmail')->references('email')->on('users');
             $table->UnsignedBigInteger('bookId');

@@ -20,9 +20,7 @@ class CartController extends Controller
         Cart::insert([
             'clientEmail' => $data->email,
             'bookId' => $book->id,
-            'qty' =>$cart['amount'],
-            'totalPrice' =>$book->price,
-            'subTotal' =>$book->price*$request->amount,
+            'qty' =>$cart['amount']
         ]);
         return redirect()->back(); 
     }
